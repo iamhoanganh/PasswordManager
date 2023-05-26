@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Passwords",
+    "slug": "PasswordManager",
+    "platforms": [
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "backgroundColor": "#002366",
+    "extra": {
+      "eas": {
+        "projectId": "09d31b98-2092-436c-9576-3da4c1eabd03"
+      }
+    },
+    "owner": "vaibhavekambaram"
+  },
+  "updates": {
+    "fallbackToCacheTimeout": 0
+  },
+  "assetBundlePatterns": [
+    "**/*"
+  ],
+  "ios": {
+    "supportsTablet": true
+  }
+}
