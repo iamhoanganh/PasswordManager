@@ -23,6 +23,9 @@ export default function SettingsScreen(props) {
     }, []);
   });
 
+  const linkerino = () => {
+    Linking.openURL("https://github.com/iamhoanganh/PasswordManager");
+  };
   /**
    * Return contents
    * - User Profile Information: Username and password
@@ -75,7 +78,7 @@ export default function SettingsScreen(props) {
           <Text variant="labelSmall">react-colorful</Text>
         </Card.Content>
         <Card.Actions>
-          <Button mode="contained" onPress={() => {}}>
+          <Button mode="contained" onPress={linkerino}>
             Github Repository
           </Button>
         </Card.Actions>
