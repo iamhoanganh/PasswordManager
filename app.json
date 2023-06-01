@@ -1,28 +1,31 @@
 {
-  "expo": {
-    "name": "Passwords",
-    "slug": "PasswordManager",
-    "platforms": [
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "backgroundColor": "#002366",
-    "extra": {
-      "eas": {
-        "projectId": "09d31b98-2092-436c-9576-3da4c1eabd03"
+    "expo": {
+      "name": "PasswordManager",
+      "slug": "PasswordManager",
+      "platforms": [
+        "android",
+        "web"
+      ],
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "backgroundColor": "#002366",
+      "extra": {
+        "eas": {
+          "projectId": "480ee7bd-8434-471e-9568-2ebe19e72bb2"
+        }
+      },
+      "owner": "iamhoanganh",
+      "android": {
+        "package": "com.iamhoanganh.PasswordManager"
       }
     },
-    "owner": "vaibhavekambaram"
-  },
-  "updates": {
-    "fallbackToCacheTimeout": 0
-  },
-  "assetBundlePatterns": [
-    "**/*"
-  ],
-  "ios": {
-    "supportsTablet": true
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
   }
-}

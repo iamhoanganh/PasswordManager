@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert, View } from "react-native";
 import Style from "../../styles/Style";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { auth } from "../../config/FirebaseConfig";
+import { auth } from "../../FirebaseConfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { TextInputBox } from "../../components/TextInputBox";
 import { ClickableButton } from "../../components/ClickableButton";

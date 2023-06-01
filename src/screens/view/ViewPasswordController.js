@@ -1,14 +1,8 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { Alert, Platform, View, Text } from "react-native";
 import * as Clipboard from "expo-clipboard";
-import { db } from "../../config/FirebaseConfig";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { db } from "../../FirebaseConfig";
+import { deleteDoc, doc, getDoc, updateDoc } from "firebase/firestore";
 import CryptoES from "crypto-es";
 import { OptionsMenuView } from "../../components/OptionsMenuView";
 import Style from "../../styles/Style";

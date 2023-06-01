@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Linking, View } from "react-native";
 import styles from "./styles";
-import { db } from "../../config/FirebaseConfig";
+import { db } from "../../FirebaseConfig";
 import { Card, Text, Button, Divider } from "react-native-paper";
 import { doc, getDoc } from "firebase/firestore";
 

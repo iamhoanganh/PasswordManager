@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Alert, Platform, Text, View } from "react-native";
-import { db } from "../../config/FirebaseConfig";
-import { collection, updateDoc, setDoc, doc, getDoc } from "firebase/firestore";
+import { db } from "../../FirebaseConfig";
+import { updateDoc, setDoc, doc, getDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 
 import SettingsContext from "../../contexts/SettingsContext";

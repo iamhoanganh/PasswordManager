@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import React, { useState, useMemo } from "react";
 import { Alert } from "react-native";
-import { auth, db } from "./src/config/FirebaseConfig";
+import { db, auth } from "./src/FirebaseConfig";
 import { addDoc, collection, doc, getDoc, setDoc } from "firebase/firestore";
 
 import {
@@ -32,7 +32,6 @@ import {
  */
 export default function App() {
   AndroidTimerFix(); // First of all, run a timer fix to suppress the LogBox timer warning messages.
-
   // State to keep track of user
   const [user, setUser] = useState(null);
 

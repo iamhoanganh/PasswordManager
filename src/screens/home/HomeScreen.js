@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { FlatList, View, SafeAreaView, Platform } from "react-native";
 import styles from "./styles";
-import { db } from "../../config/FirebaseConfig";
+import { db } from "../../FirebaseConfig";
 import {
   collection,
   getDoc,
