@@ -30,6 +30,7 @@ import { colourPalette } from "../../constants/ColourPalette";
  * @param props application props
  * @returns {JSX.Element} edit password screen render
  */
+
 export default function EditPasswordController(props) {
   const [passwordEntryName, setPasswordEntryName] = useState("");
   const [usernameText, setUsernameText] = useState("");

@@ -38,7 +38,7 @@ export default function LoginScreen(props) {
           }}
         >
           <TextInput
-            label=" Email Address"
+            label="Email Address"
             value={email}
             mode="outlined"
             onChangeText={(text) => setEmail(text)}

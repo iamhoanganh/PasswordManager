@@ -1,5 +1,10 @@
 import React from "react";
-import {CHARACTERS_LOWERCASE_LETTERS, CHARACTERS_NUMBERS, CHARACTERS_SYMBOLS, CHARACTERS_UPPERCASE_LETTERS} from "../constants/CharacterMap";
+import {
+  CHARACTERS_LOWERCASE_LETTERS,
+  CHARACTERS_NUMBERS,
+  CHARACTERS_SYMBOLS,
+  CHARACTERS_UPPERCASE_LETTERS,
+} from "../constants/CharacterMap";
 
 /**
  * Function to perform Password Generation based on input parameters.
@@ -12,33 +17,43 @@ import {CHARACTERS_LOWERCASE_LETTERS, CHARACTERS_NUMBERS, CHARACTERS_SYMBOLS, CH
  * @param valueSetter set the final password string to a state setter value
  * @returns {string} return the password string for any further external operations
  */
-export default function PasswordGeneration(includeUppercase, includeLowercase, includeNumbers, includeSymbols, passwordLength, valueSetter) {
-    let password = '' // Variable to place our final generated password
-    let characterList = '' // Character list to pull random items from
 
-    // Add character sets based on the passed in parameter values
-    if (includeUppercase) characterList = characterList + CHARACTERS_UPPERCASE_LETTERS;
-    if (includeLowercase) characterList = characterList + CHARACTERS_LOWERCASE_LETTERS;
-    if (includeNumbers) characterList = characterList + CHARACTERS_NUMBERS;
-    if (includeSymbols) characterList = characterList + CHARACTERS_SYMBOLS;
+export default function PasswordGeneration(
+  includeUppercase,
+  includeLowercase,
+  includeNumbers,
+  includeSymbols,
+  passwordLength,
+  valueSetter
+) {
+  let password = ""; // Variable to place our final generated password
+  let characterList = ""; // Character list to pull random items from
 
-    // Perform an additional check to make sure at least one of the character sets has been selected
-    const characterListLength = characterList.length;
+  // Add character sets based on the passed in parameter values
+  if (includeUppercase)
+    characterList = characterList + CHARACTERS_UPPERCASE_LETTERS;
+  if (includeLowercase)
+    characterList = characterList + CHARACTERS_LOWERCASE_LETTERS;
+  if (includeNumbers) characterList = characterList + CHARACTERS_NUMBERS;
+  if (includeSymbols) characterList = characterList + CHARACTERS_SYMBOLS;
 
-    // If none have been selected then the length is naturally zero. In this case, password generation can't continue.
-    if (characterListLength === 0) {
-        return '';
-    }
+  // Perform an additional check to make sure at least one of the character sets has been selected
+  const characterListLength = characterList.length;
 
-    // Loop for the duration of the specified password length
-    for (let i = 0; i < passwordLength; i++) {
-        // Pick a random character from the character list string
-        const characterIndex = Math.round(Math.random() * characterListLength);
-        // Add the selected random character to our password strong
-        password = password + characterList.charAt(characterIndex);
-    }
-    // set the password string to our setter value
-    valueSetter(password);
-    // Finally, return the password string
-    return password;
+  // If none have been selected then the length is naturally zero. In this case, password generation can't continue.
+  if (characterListLength === 0) {
+    return "";
+  }
+
+  // Loop for the duration of the specified password length
+  for (let i = 0; i < passwordLength; i++) {
+    // Pick a random character from the character list string
+    const characterIndex = Math.round(Math.random() * characterListLength);
+    // Add the selected random character to our password strong
+    password = password + characterList.charAt(characterIndex);
+  }
+  // set the password string to our setter value
+  valueSetter(password);
+  // Finally, return the password string
+  return password;
 }

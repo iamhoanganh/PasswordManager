@@ -30,12 +30,13 @@ import {
  * As the navigation stack is oriented around authentication, its insertion point is also here
  * @returns {JSX.Element} AuthContext and navigation stack, this then uses react-navigation to start up the application.
  */
+
 export default function App() {
   AndroidTimerFix(); // First of all, run a timer fix to suppress the LogBox timer warning messages.
   // State to keep track of user
   const [user, setUser] = useState(null);
 
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
 
   const showDialog = () => setVisible(true);
 
@@ -113,7 +114,6 @@ export default function App() {
             const uid = response.user.uid;
             // Further information about the user is stored in the users firestore collection
             // The app will not work without this collection, as passwords are stored as a subset of this.
-            const usersRef = collection(db, "users");
 
             getDoc(doc(db, "users", uid))
               .then((firestoreDocument) => {
@@ -130,13 +130,13 @@ export default function App() {
               })
               .catch((error) => {
                 // Show login error on failure
-                loginError();
+                // loginError();
                 showDialog();
               });
           })
           .catch((error) => {
             // Show login error on failure
-            loginError();
+            // loginError();
             showDialog();
           });
       },
@@ -176,10 +176,10 @@ export default function App() {
             };
             // console.log(userData);
 
+            // store user in DB
             const userRef = doc(db, "users", uid);
             setDoc(userRef, userData)
               .then(() => {
-                // console.log("tao acc thanh cong");
                 setUser(userData);
               })
               .catch((error) => {

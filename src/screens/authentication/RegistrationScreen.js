@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View } from "react-native";
 import Styles from "../../styles/Style";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -33,6 +33,7 @@ export function RegistrationScreen({
   onRegisterPress,
   onFooterLinkPress,
 }) {
+  const [passwordVisibility, setPasswordVisibility] = useState(true);
   return (
     <View style={Styles.container}>
       <KeyboardAwareScrollView
@@ -56,6 +57,13 @@ export function RegistrationScreen({
           value={password}
           mode="outlined"
           onChangeText={(text) => setPassword(text)}
+          secureTextEntry={passwordVisibility}
+          right={
+            <TextInput.Icon
+              icon="eye"
+              onPress={() => setPasswordVisibility(!passwordVisibility)}
+            />
+          }
           style={Style.input}
         />
 
@@ -63,6 +71,13 @@ export function RegistrationScreen({
           label="Confirm password"
           value={confirmPassword}
           mode="outlined"
+          secureTextEntry={passwordVisibility}
+          right={
+            <TextInput.Icon
+              icon="eye"
+              onPress={() => setPasswordVisibility(!passwordVisibility)}
+            />
+          }
           onChangeText={(text) => setConfirmPassword(text)}
           style={Style.input}
         />

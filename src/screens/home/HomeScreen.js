@@ -51,7 +51,7 @@ export default function HomeScreen(props, navigation) {
   // Search bar
   const [searchString, setSearchString] = useState("");
 
-  const [sortVisible, setSortVisible] = React.useState(false);
+  const [sortVisible, setSortVisible] = useState(false);
 
   const showSortDialog = () => {
     setSortVisible(true);
