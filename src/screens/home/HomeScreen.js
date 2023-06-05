@@ -136,14 +136,6 @@ export default function HomeScreen(props, navigation) {
       setPassphrase(data.passphrase.toString());
     });
 
-    // collection(db, "users")
-    //   .doc(userID)
-    //   .get()
-    //   .then((snapshot) => {
-    //     let data = snapshot.data();
-    //     setPassphrase(data.passphrase.toString());
-    //   }, []);
-
     props.navigation.addListener("focus", () => {
       // Retrieve entries from the database
       performSearch(searchString);
@@ -287,6 +279,7 @@ export default function HomeScreen(props, navigation) {
       item.userEmail.toString(),
       passphrase
     ).toString(CryptoES.enc.Utf8);
+
     // return entity item
     return (
       <EntityView

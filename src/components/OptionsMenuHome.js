@@ -1,7 +1,7 @@
 import React from "react";
 import OptionsMenu from "react-native-options-menu";
-import {Ionicons} from "@expo/vector-icons";
-import {Platform} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { Platform } from "react-native";
 
 /**
  * Home Screen Options Menu for Mobile Devices - Web version falls back to standard React Buttons.
@@ -18,32 +18,33 @@ import {Platform} from "react-native";
  * @param goToSettings settings function
  * @returns {JSX.Element} Options menu render view
  */
-export function OptionsMenuHome({sortByName, sortByDateCreated, sortByDateModified, goToSettings}){
+export function OptionsMenuHome({
+  sortByName,
+  sortByDateCreated,
+  sortByDateModified,
+  goToSettings,
+}) {
+  // This is just a placeholder method for the iOS exit button.
+  // It does nothing at all, but as far as I know the library seems to require it to exist.
+  const exit = () => {};
 
-    // This is just a placeholder method for the iOS exit button.
-    // It does nothing at all, but as far as I know the library seems to require it to exist.
-    const exit = () => {
-    }
-
-    // iOS requires an additional cancel button for the last value
-    if(Platform.OS==="ios"){
-        return (
-            <OptionsMenu
-                customButton={ <Ionicons name="cog" size={24} color="white"/>
-                }
-                options={["Sorting Options", "Settings", "Cancel"]}
-                actions={[sortByName, goToSettings, exit]}
-            />
-        );
-        // Android does not require a cancel button in its implementation of an action view, so we do not include it
-    } else if(Platform.OS==="android"){
-        return (
-            <OptionsMenu
-                customButton={<Ionicons name="cog" size={24} color="white"/>
-                }
-                options={["Sorting Options", "Settings"]}
-                actions={[sortByName, goToSettings]}
-            />
-        )
-    }
+  // iOS requires an additional cancel button for the last value
+  if (Platform.OS === "ios") {
+    return (
+      <OptionsMenu
+        customButton={<Ionicons name="cog" size={24} color="white" />}
+        options={["Sorting Options", "Settings", "Cancel"]}
+        actions={[sortByName, goToSettings, exit]}
+      />
+    );
+    // Android does not require a cancel button in its implementation of an action view, so we do not include it
+  } else if (Platform.OS === "android") {
+    return (
+      <OptionsMenu
+        customButton={<Ionicons name="cog" size={24} color="white" />}
+        options={["Sorting Options", "Settings"]}
+        actions={[sortByName, goToSettings]}
+      />
+    );
+  }
 }

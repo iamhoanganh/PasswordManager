@@ -27,7 +27,7 @@ export default function AddPasswordController(props) {
   const [passwordEntryName, setPasswordEntryName] = useState("");
   const [usernameText, setUsernameText] = useState("");
   const [passwordText, setPasswordText] = useState("");
-  const [selectedColour, setSelectedColour] = useState("#002366");
+  const [selectedColour, setSelectedColour] = useState("#fff");
 
   // Settings context
   const settingsContext = useContext(SettingsContext);
@@ -223,7 +223,7 @@ export default function AddPasswordController(props) {
               textSetter={setPasswordText}
               value={passwordText}
             />
-            <View
+            {/* <View
               style={{
                 justifyContent: "center",
                 paddingHorizontal: 10,
@@ -253,7 +253,7 @@ export default function AddPasswordController(props) {
                   onChange={setSelectedColour}
                 />
               )}
-            </View>
+            </View> */}
           </Card>
         </Card>
 
