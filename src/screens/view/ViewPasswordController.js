@@ -141,7 +141,7 @@ export default function ViewPasswordController(props) {
    */
   const showConfirmDialog = () => {
     return Alert.alert(
-      "Deleting entry for " + entityName,
+      "Xoá thông tin đăng nhập " + entityName,
       "Are you sure you want to remove this password entry? Once deleted, entries can not be recovered.",
       [
         {
@@ -225,14 +225,14 @@ export default function ViewPasswordController(props) {
 
             <Card.Content>
               <TextInput
-                label="Username"
+                label="Tài khoản"
                 value={entityUserEmail}
                 mode="outlined"
                 style={Style.input}
               />
 
               <TextInput
-                label="Password"
+                label="Mật khẩu"
                 value={entityPassword}
                 mode="outlined"
                 style={Style.input}
@@ -247,11 +247,11 @@ export default function ViewPasswordController(props) {
             </Card.Content>
             <Card.Actions>
               <ClickableButton
-                buttonText={"Copy Username"}
+                buttonText={"Copy Tài khoản"}
                 onPressMethod={copyUsername}
               />
               <ClickableButton
-                buttonText={"Copy Password"}
+                buttonText={"Copy Mật khẩu"}
                 onPressMethod={copyPassword}
               />
             </Card.Actions>
@@ -289,27 +289,27 @@ export default function ViewPasswordController(props) {
           }}
         >
           <ClickableButton
-            buttonText={"Edit"}
+            buttonText={"Chỉnh sửa"}
             onPressMethod={onEditButtonPress}
           />
-          <ClickableButton buttonText={"Delete"} onPressMethod={showDialog} />
+          <ClickableButton buttonText={"Xoá"} onPressMethod={showDialog} />
         </Card>
       </KeyboardAwareScrollView>
       <Portal>
         <Dialog visible={visible} onDismiss={hideDialog}>
           <Dialog.Icon icon="alert" />
           <Dialog.Title style={{ textAlign: "center" }}>
-            {"Deleting entry for " + entityName}
+            {"Xoá thông tin đăng nhập " + entityName}
           </Dialog.Title>
           <Dialog.Content>
             <Text variant="bodyMedium">
-              Are you sure you want to remove this password entry? Once deleted,
-              entries can not be recovered.
+              Bạn có chắc chắn muốn xoá thông tin đăng nhập này? Khi đã xoá
+              không thể khôi phục
             </Text>
           </Dialog.Content>
           <Dialog.Actions>
-            <Button onPress={hideDialog}>Cancel</Button>
-            <Button onPress={onDeleteButtonPress}>Delete</Button>
+            <Button onPress={hideDialog}>Huỷ bỏ</Button>
+            <Button onPress={onDeleteButtonPress}>Xoá</Button>
           </Dialog.Actions>
         </Dialog>
       </Portal>

@@ -26,8 +26,8 @@ export default function RegistrationController(props) {
    */
   const onRegisterPress = () => {
     // Check name input is at least one character long
-    if (fullName.length < 1) {
-      Alert.alert("Invalid Name", "Please enter a valid name", [
+    if (fullName.length < 4) {
+      Alert.alert("Tên không hợp lệ", "Nhập lại tên hợp lệ", [
         {
           text: "Return",
           style: "cancel",
@@ -37,26 +37,25 @@ export default function RegistrationController(props) {
     }
 
     // Check that the email address is valid using regex expression
-    const reg = /^\w+([.-]?\w+)*@\w+([]?\w+)*(\.\w{2,3})+$/;
-    if (reg.test(email) !== true) {
-      Alert.alert(
-        "Invalid Email Address",
-        "Please enter a valid email address",
-        [
-          {
-            text: "Return",
-            style: "cancel",
-          },
-        ]
-      );
+    // const reg = /^\w+([.-]?\w+)*@\w+([]?\w+)*(\.\w{2,3})+$/;
+    // check that email address is valid with gmail, hotmail, yahoo or outlook
+    const reg =
+      /^\w+([.-]?\w+)*@(gmail|hotmail|yahoo|outlook)\.(com|co\.\w{2})$/;
+    if (!reg.test(email)) {
+      Alert.alert("Email không hợp lệ", "Vui lòng nhập lại email hợp lệ", [
+        {
+          text: "Return",
+          style: "cancel",
+        },
+      ]);
       return;
     }
 
     // Check the two password fields are equal
     if (password !== confirmPassword) {
       Alert.alert(
-        "Passwords do not match",
-        "Please make sure that the passwords you have entered match.",
+        "Mật khẩu không khớp",
+        "Vui lòng kiểm tra lại mật khẩu và nhập lại.",
         [
           {
             text: "Return",
@@ -70,8 +69,8 @@ export default function RegistrationController(props) {
     // Check that the password length is at least 8 characters long
     if (password.length < 8) {
       Alert.alert(
-        "Specified password too short",
-        "Please enter a password that is at least 8 characters in length.",
+        "Mật khẩu quá ngắn",
+        "Nhập lại mật khẩu để đủ 8 ký tự trở lên bạn nhé.",
         [
           {
             text: "Return",
@@ -82,6 +81,20 @@ export default function RegistrationController(props) {
       return;
     }
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+    if (!passwordRegex.test(password)) {
+      Alert.alert(
+        "Mật khẩu không hợp lệ",
+        "Mật khẩu phải chứa ít nhất một chữ cái viết thường, một chữ cái viết hoa và một chữ số.",
+        [
+          {
+            text: "Return",
+            style: "cancel",
+          },
+        ]
+      );
+      return;
+    }
     // If all checks have been validated and succeed, then navigate to the encryption key setup
     // Full Name, Email and password details are passed through to this next screen which are later submitted to Firebase
     props.navigation.navigate("CreateEncryptionKey", {

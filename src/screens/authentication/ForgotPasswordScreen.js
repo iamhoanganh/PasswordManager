@@ -21,8 +21,8 @@ export default function ForgotPasswordScreen(props) {
    */
   const sentMessage = () => {
     Alert.alert(
-      "Recovery Email Address Sent!",
-      "If the address you submitted was valid, you should receive a link to recover your account."
+      "Email khôi phục đã gửi!",
+      "Nếu email bạn nhập hợp lệ, hãy kiểm tra lại hòm thư email nhé!."
     );
   };
 
@@ -32,6 +32,18 @@ export default function ForgotPasswordScreen(props) {
    * For security reasons, the application will not display whether the email address is valid or not.
    */
   const onConfirmationPress = () => {
+    // Email validation using regex
+
+    const emailRegex =
+      /^\w+([.-]?\w+)*@(gmail|hotmail|yahoo|outlook)\.(com|co\.\w{2})$/;
+    if (!emailRegex.test(email)) {
+      Alert.alert(
+        "Email không hợp lệ",
+        "Vui lòng nhập một địa chỉ email hợp lệ."
+      );
+      return;
+    }
+
     sendPasswordResetEmail(auth, email)
       .then(() => {
         sentMessage(); // show advisory prompt after sending message
@@ -56,12 +68,12 @@ export default function ForgotPasswordScreen(props) {
         keyboardShouldPersistTaps="always"
       >
         <TextInputBox
-          placeholder={"E-mail Address"}
+          placeholder={"Địa chỉ e-mail"}
           textSetter={setEmail}
           value={email}
         />
         <ClickableButton
-          buttonText={"Send Recovery Email"}
+          buttonText={"Gửi email khôi phục"}
           onPressMethod={onConfirmationPress}
         />
       </KeyboardAwareScrollView>

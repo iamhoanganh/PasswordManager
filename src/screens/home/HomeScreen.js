@@ -303,7 +303,7 @@ export default function HomeScreen(props, navigation) {
         {/* Search Box */}
 
         <Searchbar
-          placeholder="Start typing to search"
+          placeholder="Nhập để tìm kiếm"
           onChangeText={(text) => performSearch(text)}
           value={searchString}
         />
@@ -320,7 +320,7 @@ export default function HomeScreen(props, navigation) {
         <FAB
           icon="plus"
           style={Style.fab}
-          label={"New Entry"}
+          label={"Thêm"}
           onPress={() =>
             props.navigation.navigate("AddPasswordScreen", { userId: userID })
           }
@@ -332,7 +332,7 @@ export default function HomeScreen(props, navigation) {
       <Portal>
         <Dialog visible={sortVisible} onDismiss={hideSortDialog}>
           <View style={styles.modalView}>
-            <Dialog.Title>Sorting Options</Dialog.Title>
+            <Dialog.Title>Tuỳ chọn sắp xếp</Dialog.Title>
             <Dialog.Content>
               <SegmentedButtons
                 value={value}
@@ -345,13 +345,13 @@ export default function HomeScreen(props, navigation) {
                 buttons={[
                   {
                     value: "0",
-                    label: "Name",
+                    label: "Tên",
                   },
                   {
                     value: "1",
-                    label: "Created",
+                    label: "Tạo",
                   },
-                  { value: "2", label: "Modified" },
+                  { value: "2", label: "Sửa đổi" },
                 ]}
               />
               <SegmentedButtons
@@ -365,17 +365,17 @@ export default function HomeScreen(props, navigation) {
                 buttons={[
                   {
                     value: "0",
-                    label: "Ascending",
+                    label: "Tăng dần",
                   },
                   {
                     value: "1",
-                    label: "Descending",
+                    label: "Giảm dần",
                   },
                 ]}
               />
             </Dialog.Content>
             <Dialog.Actions>
-              <Button onPress={hideSortDialog}>Apply</Button>
+              <Button onPress={hideSortDialog}>Chấp nhận</Button>
             </Dialog.Actions>
           </View>
         </Dialog>

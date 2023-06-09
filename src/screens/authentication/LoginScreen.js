@@ -22,7 +22,32 @@ export default function LoginScreen(props) {
   const onForgotPasswordLinkPress = () => {
     props.navigation.navigate("ForgotPassword");
   };
+  const isEmailValid = (email) => {
+    const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    return emailRegex.test(email);
+  };
 
+  const isPasswordValid = (password) => {
+    // Password should contain at least 6 characters, including at least one letter and one digit
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const handleSignIn = () => {
+    if (!isEmailValid(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    if (!isPasswordValid(password)) {
+      alert(
+        "Please enter a valid password. It should contain at least 6 characters, including at least one letter and one digit."
+      );
+      return;
+    }
+
+    signIn({ email, password });
+  };
   return (
     <View style={Style.container}>
       <KeyboardAwareScrollView
@@ -38,7 +63,7 @@ export default function LoginScreen(props) {
           }}
         >
           <TextInput
-            label="Email Address"
+            label="Email"
             value={email}
             mode="outlined"
             onChangeText={(text) => setEmail(text)}
@@ -46,7 +71,7 @@ export default function LoginScreen(props) {
           />
 
           <TextInput
-            label="Password"
+            label="Mật khẩu"
             value={password}
             mode="outlined"
             secureTextEntry={passwordVisibility}
@@ -60,12 +85,8 @@ export default function LoginScreen(props) {
             style={Style.input}
           />
 
-          <Button
-            style={Style.button}
-            mode="contained"
-            onPress={() => signIn({ email, password })}
-          >
-            Sign in
+          <Button style={Style.button} mode="contained" onPress={handleSignIn}>
+            Đăng nhập
           </Button>
 
           <Button
@@ -73,14 +94,14 @@ export default function LoginScreen(props) {
             mode="outlined"
             onPress={onFooterLinkPress}
           >
-            Create a new account
+            Đăng ký tài khoản
           </Button>
           <Button
             style={Style.button}
             mode="outlined"
             onPress={onForgotPasswordLinkPress}
           >
-            Password reset
+            Khôi phục mật khẩu
           </Button>
         </Card>
       </KeyboardAwareScrollView>

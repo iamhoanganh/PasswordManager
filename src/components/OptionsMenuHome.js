@@ -33,7 +33,7 @@ export function OptionsMenuHome({
     return (
       <OptionsMenu
         customButton={<Ionicons name="cog" size={24} color="white" />}
-        options={["Sorting Options", "Settings", "Cancel"]}
+        options={["Sắp xếp", "Cài đặt", "Huỷ bỏ"]}
         actions={[sortByName, goToSettings, exit]}
       />
     );
@@ -42,7 +42,7 @@ export function OptionsMenuHome({
     return (
       <OptionsMenu
         customButton={<Ionicons name="cog" size={24} color="white" />}
-        options={["Sorting Options", "Settings"]}
+        options={["Sắp xếp", "Cài đặt"]}
         actions={[sortByName, goToSettings]}
       />
     );

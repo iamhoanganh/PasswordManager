@@ -49,7 +49,7 @@ export function StackNavigatorContainer({ user, signOut, biometricAuth }) {
           <Stack.Screen
             name="AddPasswordScreen"
             component={AddPasswordScreen}
-            options={{ title: "Add Password Entry" }}
+            options={{ title: "Thêm thông tin đăng nhập" }}
           />
           <Stack.Screen
             name="ViewPasswordScreen"
@@ -58,7 +58,7 @@ export function StackNavigatorContainer({ user, signOut, biometricAuth }) {
           <Stack.Screen
             name="EditPasswordScreen"
             component={EditPasswordScreen}
-            options={{ title: "Edit Password Details" }}
+            options={{ title: "Chỉnh sửa thông tin" }}
           />
         </>
       ) : (
@@ -72,17 +72,17 @@ export function StackNavigatorContainer({ user, signOut, biometricAuth }) {
           <Stack.Screen
             name="CreateEncryptionKey"
             component={CreateEncryptionKey}
-            options={{ title: "Setup Encryption" }}
+            options={{ title: "Thiết lập mã hoá" }}
           />
           <Stack.Screen
             name="Registration"
             component={RegistrationScreen}
-            options={{ title: "Create an Account" }}
+            options={{ title: "Tạo tài khoản mới" }}
           />
           <Stack.Screen
             name="ForgotPassword"
             component={ForgotPasswordScreen}
-            options={{ title: "Forgot Password" }}
+            options={{ title: "Quên mật khẩu" }}
           />
         </>
       )}

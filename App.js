@@ -213,15 +213,15 @@ export default function App() {
           <Dialog.Icon icon="alert" />
 
           <Dialog.Title style={{ textAlign: "center" }}>
-            Invalid Login Credentials
+            Thông tin đăng nhập không hợp lệ
           </Dialog.Title>
           <Dialog.Content>
             <Text variant="bodyMedium">
-              The email address and/or password details entered are not valid.
-              Please enter the correct details in the address and password
-              fields. If you have forgotten your password, you can reset it
-              through the reset password button. A new account can also be made
-              in this location.
+              Địa chỉ email và/hoặc chi tiết mật khẩu đã nhập không hợp lệ. Vui
+              lòng nhập chính xác các chi tiết trong địa chỉ và mật khẩu lĩnh
+              vực. Nếu bạn quên mật khẩu, bạn có thể đặt lại mật khẩu thông qua
+              nút đặt lại mật khẩu. Một tài khoản mới cũng có thể được thực hiện
+              ở vị trí này.
             </Text>
           </Dialog.Content>
           <Dialog.Actions>

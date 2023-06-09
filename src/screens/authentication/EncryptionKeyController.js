@@ -32,15 +32,15 @@ export default function EncryptionKeyController(props) {
   const onRegisterPress = () => {
     // Check that passwords are matching. This is somewhat redundant as it is also done in the previous screen.
     if (password !== confirmPassword) {
-      Alert.alert("Passwords don't match.");
+      Alert.alert("Mật khẩu không khớp.");
       return;
     }
 
     // Check that the encryption keys are matching
     if (passphrase !== confirmPassphrase) {
       Alert.alert(
-        "Encryption key does not match",
-        "Could not authenticate with the provided biometric credentials. Please sign in using your email address and password.",
+        "Khoá mã hoá không khớp",
+        "Không thể xác thực với thông tin đăng nhập. Vui lòng đăng nhập sử dụng email và mật khẩu.",
         [
           {
             text: "Return",
@@ -54,8 +54,8 @@ export default function EncryptionKeyController(props) {
     // Ensure that the encryption key length is greater than 12 characters
     if (passphrase.length < 12) {
       Alert.alert(
-        "Specified encryption key too short",
-        "Please specify an encryption key that is at the minimum 12 characters in length.",
+        "Khoá quá ngắn",
+        "Nhập khoá dài hơn 12 ký tự để đảm bảo dữ liệu được mã hoá an toàn.",
         [
           {
             text: "Return",
@@ -106,22 +106,20 @@ export default function EncryptionKeyController(props) {
       >
         <View style={Style.infoView}>
           <Text style={Style.text}>
-            Password Manager encrypts your information using Advanced Encryption
-            Standard.
+            Password Manager mã hoá thông tin sử dụng thuật toán Advanced
+            Encryption Standard.
           </Text>
+          <Text style={Style.text}>Để mã hoá, hãy nhập khoá mã hoá.</Text>
           <Text style={Style.text}>
-            For this to work, an encryption key is needed.
-          </Text>
-          <Text style={Style.text}>
-            It is recommend that you copy this key for future reference.
+            Bạn nên sao chép lại khoá mã hoá cho tương lai.
           </Text>
           <TextInputBox
-            placeholder={"Encryption Passphrase"}
+            placeholder={"Nhập khoá"}
             textSetter={setPassphrase}
             value={passphrase}
           />
           <TextInputBox
-            placeholder={"Confirm Encryption Passphrase"}
+            placeholder={"Nhập lại khoá"}
             textSetter={setConfirmPassphrase}
             value={confirmPassphrase}
           />
@@ -131,19 +129,19 @@ export default function EncryptionKeyController(props) {
             mode="contained"
             onPress={onGenerateEncryptionKey}
           >
-            Auto Generate Encryption Key
+            Sinh khoá tự động
           </Button>
           <Button
             style={Style.button}
             mode="contained"
             onPress={copyEncryptionKey}
           >
-            Copy Encryption Key to Clipboard
+            Copy khoá vào Clipboard
           </Button>
         </View>
 
         <Button style={Style.button} mode="contained" onPress={onRegisterPress}>
-          Complete Registration
+          Hoàn tất đăng ký
         </Button>
       </KeyboardAwareScrollView>
     </View>

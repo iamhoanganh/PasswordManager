@@ -43,11 +43,11 @@ export default function SettingsScreen(props) {
       >
         <Card.Content>
           <Text variant="titleLarge">{userFullName}</Text>
-          <Text variant="bodyMedium">Email Address: {userEmailAddress}</Text>
+          <Text variant="bodyMedium">Email: {userEmailAddress}</Text>
         </Card.Content>
         <Card.Actions>
           <Button mode="contained" onPress={props.onSignOut}>
-            Sign Out
+            Đăng xuất
           </Button>
         </Card.Actions>
       </Card>
@@ -60,7 +60,7 @@ export default function SettingsScreen(props) {
         }}
       >
         <Card.Content>
-          <Text variant="titleLarge">About</Text>
+          <Text variant="titleLarge">Thông tin</Text>
           <Text variant="bodyMedium">Password Manager</Text>
           <Divider />
           <Text variant="labelMedium">Packages Used:</Text>

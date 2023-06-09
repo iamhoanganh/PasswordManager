@@ -42,7 +42,7 @@ export function RegistrationScreen({
       >
         {/* Text input fields */}
         <TextInputBox
-          placeholder={"Full Name"}
+          placeholder={"Họ tên"}
           textSetter={setFullName}
           value={fullName}
         />
@@ -53,7 +53,7 @@ export function RegistrationScreen({
         />
 
         <TextInput
-          label="Password"
+          label="Mật khẩu"
           value={password}
           mode="outlined"
           onChangeText={(text) => setPassword(text)}
@@ -68,7 +68,7 @@ export function RegistrationScreen({
         />
 
         <TextInput
-          label="Confirm password"
+          label="Nhập lại mật khẩu"
           value={confirmPassword}
           mode="outlined"
           secureTextEntry={passwordVisibility}
@@ -84,7 +84,7 @@ export function RegistrationScreen({
 
         {/* Continue Button */}
         <ClickableButton
-          buttonText={"Continue"}
+          buttonText={"Tiếp tục"}
           onPressMethod={onRegisterPress}
         />
 
@@ -92,7 +92,7 @@ export function RegistrationScreen({
         <View style={Styles.footerView}>
           <Text style={Styles.footerText}>
             <Text onPress={onFooterLinkPress} style={Styles.footerLink}>
-              Already have an account? Log in
+              Đã có tài khoản? Đăng nhập
             </Text>
           </Text>
         </View>
