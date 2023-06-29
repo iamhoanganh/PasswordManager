@@ -44,11 +44,18 @@ export default function PasswordGeneration(
   if (characterListLength === 0) {
     return "";
   }
-
+  function getRandomNumber(min, max) {
+    const randomBytes = new Uint32Array(1);
+    crypto.getRandomValues(randomBytes);
+    const range = max - min + 1;
+    return min + (randomBytes[0] % range);
+  }
   // Loop for the duration of the specified password length
   for (let i = 0; i < passwordLength; i++) {
     // Pick a random character from the character list string
-    const characterIndex = Math.round(Math.random() * characterListLength);
+    // const characterIndex = Math.round(Math.random() * characterListLength);
+
+    const characterIndex = getRandomNumber(0, characterListLength - 1);
     // Add the selected random character to our password strong
     password = password + characterList.charAt(characterIndex);
   }
