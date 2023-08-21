@@ -10,7 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-community/slider": "4.2.4",
+    "@react-native-community/slider": "4.4.3",
     "@react-native-masked-view/masked-view": "0.2.8",
     "@react-native-picker/picker": "2.4.8",
     "@react-navigation/native": "^6.1.3",
